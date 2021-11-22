@@ -27,6 +27,7 @@ def train_fn(
             D_real_loss = bce(D_real, torch.ones_like(D_real))
             D_fake = disc(x, y_fake.detach())
             D_fake_loss = bce(D_fake, torch.zeros_like(D_fake))
+            # To make the Discriminator work slower than the Generator 
             D_loss = (D_real_loss + D_fake_loss) / 2
 
         disc.zero_grad()
@@ -38,7 +39,7 @@ def train_fn(
         with torch.cuda.amp.autocast():
             D_fake = disc(x, y_fake)
             G_fake_loss = bce(D_fake, torch.ones_like(D_fake))
-            L1 = l1_loss(y_fake, y) * config.L1_LAMBDA
+            L1 = l1_loss(y_fake, y) * config.L1_LAMBDA # 100
             G_loss = G_fake_loss + L1
 
         opt_gen.zero_grad()
