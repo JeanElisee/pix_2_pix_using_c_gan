@@ -30,6 +30,7 @@ class Generator(nn.Module):
             nn.LeakyReLU(0.2),
         )
 
+        # Could be modify to be created by a loop
         self.down1 = Block(features, features*2, down=True, activation_function="leaky", use_dropout=False) # 64
         self.down2 = Block(features*2, features*4, down=True, activation_function="leaky", use_dropout=False) # 32
         self.down3 = Block(features*4, features*8, down=True, activation_function="leaky", use_dropout=False) # 16
