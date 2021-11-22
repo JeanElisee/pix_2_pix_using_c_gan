@@ -3,6 +3,7 @@ import albumentations as A
 from albumentations.pytorch import ToTensorV2
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
+# If it is to run on colab needs to change the location according to the dataset
 TRAIN_DIR = "data/train"
 VAL_DIR = "data/val"
 EVALUATION_DIR = "evaluation"

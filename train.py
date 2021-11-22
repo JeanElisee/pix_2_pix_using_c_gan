@@ -55,7 +55,7 @@ def train_fn(
 
 
 def main():
-
+    
     disc = Discriminator(in_channels=3).to(config.DEVICE)
     gen = Generator(in_channels=3, features=64).to(config.DEVICE)
     opt_disc = optim.Adam(disc.parameters(), lr=config.LEARNING_RATE, betas=(0.5, 0.999),) # 0.9999 standard value for ADAM
