@@ -5,6 +5,7 @@ from albumentations.pytorch import ToTensorV2
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 TRAIN_DIR = "data/train"
 VAL_DIR = "data/val"
+EVALUATION_DIR = "evaluation"
 LEARNING_RATE = 2e-4 # same as the paper
 BATCH_SIZE = 16 # Batch size of 16 in the paper 1
 NUM_WORKERS = 2
