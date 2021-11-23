@@ -55,7 +55,7 @@ def train_fn(
 
 
 def main():
-    
+
     disc = Discriminator(in_channels=3).to(config.DEVICE)
     gen = Generator(in_channels=3, features=64).to(config.DEVICE)
     opt_disc = optim.Adam(disc.parameters(), lr=config.LEARNING_RATE, betas=(0.5, 0.999),) # 0.9999 standard value for ADAM
@@ -85,6 +85,8 @@ def main():
     val_loader = DataLoader(val_dataset, batch_size=1, shuffle=False)
 
     for epoch in range(config.NUM_EPOCHS):
+        print(f"Epoch:{epoch} / {config.NUM_EPOCHS}")
+        
         train_fn(
             disc, gen, train_loader, opt_disc, opt_gen, L1_LOSS, BCE, g_scaler, d_scaler,
         )

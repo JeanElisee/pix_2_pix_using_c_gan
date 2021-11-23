@@ -35,7 +35,7 @@ class MapDataset(Dataset):
         return input_image, target_image
 
 if __name__ == "__main__":
-    dataset = MapDataset("data/train/")
+    dataset = MapDataset(config.TRAIN_DIR)
     loader = DataLoader(dataset, batch_size=5)
     for x, y in loader:
         print(x.shape)
